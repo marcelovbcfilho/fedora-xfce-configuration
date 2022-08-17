@@ -27,6 +27,7 @@ sudo usermod -aG docker $USER
 # Installing plank
 echo "Installing plank..."
 sudo dnf install plank -y
+cp -r ./pantheon-dark ~/.local/share/plank/themes/
 
 # Installing maven
 echo "Installing maven..."
