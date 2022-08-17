@@ -60,7 +60,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-echo "Manually update the .zshrc ZSH_THEM to \"powerlevel10k/powerlevel10k\""
+echo "Manually update the .zshrc ZSH_THEME to \"powerlevel10k/powerlevel10k\""
 echo "Manually update the .zshrc plugins to include \"(git npm zsh-autosuggestions zsh-syntax-highlighting history)\""
 
 # SDK Man
