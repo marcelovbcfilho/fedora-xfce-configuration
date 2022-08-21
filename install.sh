@@ -37,20 +37,23 @@ sudo dnf install maven -y
 echo "Installing XFCE Global menu plugin..."
 sudo echo "[copr:copr.fedorainfracloud.org:jcornuz:xfce-global-menu]
 name=Copr repo for xfce-global-menu owned by jcornuz
-baseurl=https://download.copr.fedorainfracloud.org/results/jcornuz/xfce-global-menu/fedora-rawhide-$basearch/
+baseurl=https://download.copr.fedorainfracloud.org/results/jcornuz/xfce-global-menu/fedora-rawhide-\$basearch/
 type=rpm-md
 skip_if_unavailable=True
 gpgcheck=1
 gpgkey=https://download.copr.fedorainfracloud.org/results/jcornuz/xfce-global-menu/pubkey.gpg
 repo_gpgcheck=0
 enabled=1
-enabled_metadata=1" >> /etc/yum.repos.d/jcornuz-xfce-global-menu-fedora-rawhide.repo
+enabled_metadata=1" > ./jcornuz-xfce-global-menu-fedora-rawhide.repo
+sudo mv ./jcornuz-xfce-global-menu-fedora-rawhide.repo /etc/yum.repos.d/jcornuz-xfce-global-menu-fedora-rawhide.repo
 sudo dnf upgrade -y
 sudo dnf install xfce4-vala-panel-appmenu-plugin -y
 
 # XFCE Fix for global menu
 xfconf-query -c xsettings -p /Gtk/ShellShowsMenubar -n -t bool -s true
 xfconf-query -c xsettings -p /Gtk/ShellShowsAppmenu -n -t bool -s true
+echo "GTK_MODULES=\"appmenu-gtk-module\" 
+export GTK_MODULES" >> ~/.bash_profile
 
 # ZSH and Oh my zsh
 echo "Installing zsh and Oh my zsh..."
@@ -100,6 +103,15 @@ flatpak install flathub rest.insomnia.Insomnia -y
 
 echo "Godot..."
 flatpak install flathub org.godotengine.Godot -y
+
+echo "OBS..."
+flatpak install flathub com.obsproject.Studio -y
+
+echo "Sound record..."
+flatpak install flathub org.gnome.SoundRecorder -y
+
+echo "Gnome Boxes..."
+flatpak install flathub org.gnome.Boxes -y
 
 # Default folders
 echo "Creating Workspaces and default folders..."
